@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test JavaScript</title>
+    <script>
+        // Déclaration des variables 
+        var N; S = ''; M; T = ''; idListe = ''; orientation = '';
+        // FUNCTION A 
+        // 1
+        function func01() {
+            document.write("hello world");
+        }
+        // 2
+        function func02() {
+            document.write("<p> hello world </p>");
+        }
+        // 3
+        function func03() {
+            document.write('<div class="myclass">ui</div>');
+        }
+        // 4
+        function func05A() {
+            document.write('<p class="myp">ui ');
+        }
+
+        function func05B() {
+            document.write('</p>');
+        }
+        // 5
+        function func04A() {
+            document.write('<div class="mydiv">ui ');
+        }
+
+        function func04B() {
+            document.write('</div>')
+        }
+        // 6
+        function func06() {
+            func04A(div1) + func05A() + func05B() + func05A() + func05B() + func04B();
+        }
+        // FONCTION B
+        // 1
+        function func07(className) {
+            document.write("<p> " + className + "</p>");
+        }
+        // 2
+        function func08(id, className) {
+            document.write('<div id="' + id + '">' + '<p class="' + className + '"</p>' + '<p class="' + className + '"</p>');
+        }
+        // //3
+        function func09(nombre) {
+            for (i = 0; i <= nombre; i++) {
+                document.write("Nombre numéro" + i + "<br>");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <script>
+        //BOUCLES A
+        //1/
+        var x = 0;
+        while (x <= 10) {
+            document.write("<strong>Hello world</strong> <br>");
+            x++;
+        }
+
+        //2/
+        var y = 0;
+        while (y<=12){
+            if ( y % 2 == 0){
+                document.write('<p style="color:red;">Hello world</p>');
+            }
+            else {
+                document.write('<p style="color:blue;">Hello world</p>');
+            }
+            y++;
+        }
+
+        //3/
+        var comp;
+        for (comp = 1; comp <= 32; comp++) {
+            if (comp % 3 == 0) {
+                continue;
+            }
+            else {
+                document.write(comp + ', ');
+            }
+        }
+
+        //4/
+        function funcNbr(N,S) {
+            for (i=0; i<=N; i++){
+                document.write(S+"<br>");
+            }
+        }
+
+        //5/
+        function func10(N) {
+            for (i=0; i<=N; i++) {
+                func05A() + func05B() ;
+            }
+        }
+
+        //6/
+        function func11(N,M) {
+            for (i=0; i<N; i++) {
+                func04A();
+                for (a=0; a<M ; a++){
+                 func05A()+func05B();
+                }
+                func04B();
+            }
+        }
+
+        //7/
+        var tab1=1; tab2=0;
+        for (tab2=1;tab2<=5;tab2++){
+        document.write("<table>");
+        for (tab1=1;tab1<=5;tab1++) {
+            document.write("<td>"+tab1+"</td>");
+            }
+        document.write("</table>");
+        }
+
+        //FONCTIONS C
+        //1
+        function func12(param) {
+            document.getElementById("mydiv").innerHTML=param;
+        }
+
+        //2
+        function func13(param) {
+            document.getElementById("mydiv").innerHTML+=param;
+        }
+
+        //3
+        function func14(T, S) {
+            if (document.getElementById(T).innerHTML = null) {
+                document.getElementById(T).innerHTML = "<strong>" + S + "</strong>";
+            }
+            else {
+                document.getElementById(T).innerHTML += S;
+            }
+        }
+
+        //4
+        function func15(idListe, orientation, lien1, lien2, lien3) {
+            document.write('<ul id="' + idListe + '"> <li><a href="' + lien1 + '">'+lien1+'</a></li><li><a href="' + lien2 + '">'+lien2+'</a></li><li><a href="' + lien3 + '">'+lien3+'t</a></li></ul>');
+            if (orientation == "vertical") {
+                document.getElementById(idListe).style = "display:block;";
+            }
+            else if (orientation == "horizontal") {
+                document.getElementById(idListe).style = "display:flex;";
+            }
+            else {
+                document.write('Erreur, Veuillez taper "horizontal" ou "vertical"');
+            }
+        }
+        
+        //5
+        function func16(idListe, orientation, lien1, lien2, lien3) {
+            func04A()+func15(idListe, orientation, lien1, lien2, lien3)+func04B();
+        }
+        
+        // //6
+        function func17(){
+            document.write('<div id="header">');
+            func15("liste","horizontal","acceuil","blog","contact");
+            document.write('</div>');
+            document.write('<div id="contenu">');
+            func11(2,2);
+            document.write('</div>');
+            document.write('<div id="footer"><p id="pfooter"></p></div>');
+            document.getElementById("pfooter").innerHTML="<< 2018 - copyright DWWM - Adrien Fauquet>>";
+        }
+        func17();
+    </script>
+
+</body>
+
+</html>
